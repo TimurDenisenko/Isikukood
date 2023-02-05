@@ -4,7 +4,7 @@ def iPikk(x:str)->bool:
     :rtype: bool
     """
     y=False
-    if x.isdigit() and len(x)==11:
+    if len(x)==11:
         y=True 
     return y
 
@@ -57,26 +57,48 @@ def khaiga(x:str)->str:
     if int(hai) in range(1,11): 
         haigla="Kuressaare Haigla"
     elif int(hai) in range(11,20): 
-        haigla="Tartu Ülikooli Naistekliinik, Tartumaa, Tartu"
+        h="Tartu Ülikooli Naistekliinik, Tartumaa, Tartu"
     elif int(hai) in range(21,221):
         haigla="Ida-Tallinna Keskhaigla, Pelgulinna sünnitusmaja, Hiiumaa, Keila, Rapla haigla, Loksa haigla"
-    elif int(hai) in range(221,270): 
-        haigla=Ida-Viru Keskhaigla (Kohtla-Järve, endine Jõhvi)
-    #271...370 
-    #= Maarjamõisa Kliinikum (Tartu), Jõgeva Haigla
-    #371...420 
-    #= Narva Haigla
-    #421...470 
-    #= Pärnu Haigla
-    #471...490 
-    #= Pelgulinna Sünnitusmaja (Tallinn), Haapsalu haigla
-    #491...520 
-    #= Järvamaa Haigla (Paide)
-    #521...570 
-    #= Rakvere, Tapa haigla
-    #571...600 
-    #= Valga Haigla
-    #601...650 
-    #= Viljandi Haigla
-    #651...700
-    #= Lõuna-Eesti Haigla (Võru), Põlva Haigla 
+    elif int(hai) in range(221,271): 
+        haigla="Ida-Viru Keskhaigla (Kohtla-Järve, endine Jõhvi)"
+    elif int(hai) in range(271,371):
+        haigla="Maarjamõisa Kliinikum (Tartu), Jõgeva Haigla"
+    elif int(hai) in range(371,421): 
+        haigla="Narva Haigla"
+    elif int(hai) in range(421,471):
+        haigla="Pärnu Haigla"
+    elif int(hai) in range(471,491):
+        haigla="Pelgulinna Sünnitusmaja (Tallinn), Haapsalu haigla"
+    elif int(hai) in range(491,521):
+        haigla="Järvamaa Haigla (Paide)"
+    elif int(hai) in range(521,571):
+        haigla="Rakvere, Tapa haigla"
+    elif int(hai) in range(571,601):
+        haigla="Valga Haigla"
+    elif int(hai) in range(601,651): 
+        haigla="Viljandi Haigla"
+    elif int(hai) in range(651,701):
+        haigla="Lõuna-Eesti Haigla (Võru), Põlva Haigla"
+    else:
+        haigla="Viga"
+    return haigla
+
+def karv(x:str)->str:
+    xlist=list(map(int,x))
+    arv=1*xlist[0]+2*xlist[1]+3*xlist[2]+4*xlist[3]+5*xlist[4]+6*xlist[5]+7*xlist[6]+8*xlist[7]+9*xlist[8]+1*xlist[9]
+    if arv%10==0:
+        arv=3*xlist[0]+4*xlist[1]+5*xlist[2]+6*xlist[3]+7*xlist[4]+8*xlist[5]+9*xlist[6]+1*xlist[7]+2*xlist[8]+3*xlist[9]
+        arv1=arv//11
+        arv=arv-arv1*11
+    else:
+        arv1=arv//11
+        arv=arv-arv1*11
+    if arv==xlist[10]:
+        x="Kontrollnumber on korras"
+    else:
+        x="Viga"
+    return x
+
+def ikood(x: str)->str:
+    print(f"See on {ksugu(x)} ta on sündinud {ksupa(x)}, tema sünnikoht on {khaiga(x)}")
