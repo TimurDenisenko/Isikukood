@@ -86,18 +86,16 @@ def khaiga(x:str)->str:
 
 def karv(x:str)->str:
     xlist=list(map(int,x))
-    astme1=[1,2,3,4,5,6,7,8,9,1]
-    astme2=[3,4,5,6,7,8,9,1,2,3]
-    arv=0
-    for i in range(10):
-        arv+=xlist[i]*astme1[i]
+    arv=1*xlist[0]+2*xlist[1]+3*xlist[2]+4*xlist[3]+5*xlist[4]+6*xlist[5]+7*xlist[6]+8*xlist[7]+9*xlist[8]+1*xlist[9]
     if arv%10==0:
-        arv=0
-        for i in range(10):
-            arv+=xlist[i]*astme2[2]
-        arv=arv-(arv//11)*11
+        arv=3*xlist[0]+4*xlist[1]+5*xlist[2]+6*xlist[3]+7*xlist[4]+8*xlist[5]+9*xlist[6]+1*xlist[7]+2*xlist[8]+3*xlist[9]
+        arv1=arv//11
+        arv=arv-arv1*11
     else:
-        arv=arv-(arv//11)*11
+        arv1=arv//11
+        arv=arv-arv1*11
+        if arv==10:
+            arv=0
     if arv==xlist[10]:
         x="Kontrollnumber on korras"
     else:
